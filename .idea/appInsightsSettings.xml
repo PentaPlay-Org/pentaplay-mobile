@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="lk.nibm.pdsa.pentaplay.pentaplay_mobile" />
+                  <option name="mobileSdkAppId" value="1:803029372464:android:949ac1f9e136d92cf767f5" />
+                  <option name="projectId" value="pentaplay-b86fe" />
+                  <option name="projectNumber" value="803029372464" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

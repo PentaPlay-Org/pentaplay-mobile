@@ -27,6 +27,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -49,10 +52,10 @@ dependencies {
     //MultiDex
     implementation ("androidx.multidex:multidex:2.0.1")
 
-    implementation ("com.android.volley:volley:1.2.0")
+    implementation ("com.android.volley:volley:1.2.1")
     implementation ("io.github.chaosleung:pinview:1.4.4")
 
     //Testing (jupiter)
-    implementation ("org.junit.jupiter:junit-jupiter")
+    testImplementation ("org.junit.jupiter:junit-jupiter:5.8.0")
 
 }

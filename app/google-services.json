@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "803029372464",
+    "project_id": "pentaplay-b86fe",
+    "storage_bucket": "pentaplay-b86fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803029372464:android:949ac1f9e136d92cf767f5",
+        "android_client_info": {
+          "package_name": "lk.nibm.pdsa.pentaplay.pentaplay_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGVaxQg93r9Vb3SV0rkxMKLkgXvUxf5uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

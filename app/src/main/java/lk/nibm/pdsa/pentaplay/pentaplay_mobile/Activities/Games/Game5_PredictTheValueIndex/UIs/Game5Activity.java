@@ -8,6 +8,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Arrays;
+
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTheValueIndex.Logics.Helper;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTheValueIndex.Logics.ISearchAlgorithm;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTheValueIndex.Logics.PredictTheValueIndex;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTheValueIndex.Logics.SearchAlgorithm;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
 
 public class Game5Activity extends AppCompatActivity {
@@ -22,5 +28,9 @@ public class Game5Activity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        PredictTheValueIndex obj = new PredictTheValueIndex();
+        System.out.print("ARRAY  ");
+        String array = Arrays.toString(obj.startRound());
+        System.out.print(array);
     }
 }

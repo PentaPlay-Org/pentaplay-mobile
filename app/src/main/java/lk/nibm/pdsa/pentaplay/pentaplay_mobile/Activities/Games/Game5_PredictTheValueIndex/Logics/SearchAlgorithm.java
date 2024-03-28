@@ -60,7 +60,13 @@ public class  SearchAlgorithm implements ISearchAlgorithm {
 
     @Override
     public int exponential() {
-        return 0;
+        int bound = 1;
+
+        while(bound < list.length && list[bound] < key)
+            bound *=2;
+        int left = bound /2;
+        int right = Math.min(bound , list.length - 1);
+        return  binary(left, right);
     }
     @Override
     public int  searchIndex(String algorithm){
@@ -70,7 +76,7 @@ public class  SearchAlgorithm implements ISearchAlgorithm {
             case "JUMP SEARCH":
                 return jump();
             case "EXPONENTIAL SEARCH":
-                return -1;
+                return exponential();
             case "FIBONACCI_SEARCH":
                 return fibonacci();
             default:

@@ -37,7 +37,7 @@ public class PredictTheValueIndex {
         ISearchAlgorithm searchAlgorithm = new SearchAlgorithm(sortedArray , this.key);
         for (SearchAlgorithmType algo:algorithmTypes) {
             long startTime = System.nanoTime();
-            searchAlgorithm.searchIndex(algo.name);
+            algo.index  = searchAlgorithm.searchIndex(algo.name);
             long endTime = System.nanoTime();
             long duration = (endTime - startTime) / 1000000;  //in milliseconds
             algo.duration = (int)duration;

@@ -55,7 +55,40 @@ public class  SearchAlgorithm implements ISearchAlgorithm {
 
     @Override
     public int fibonacci() {
-        return 0;
+        int n = list.length;
+        int offset = -1;
+        int fibMMinus2 = 0;
+        int fibMMinus1 = 1;
+        int fibM = fibMMinus1 + fibMMinus2;
+
+        while (fibM < n) {
+            fibMMinus2 = fibMMinus1;
+            fibMMinus1 = fibM;
+            fibM = fibMMinus1 + fibMMinus2;
+        }
+
+        while (fibM > 1) {
+            int i = Math.min(offset + fibMMinus2, n - 1);
+
+            if (list[i] < key) {
+                fibM = fibMMinus1;
+                fibMMinus1 = fibMMinus2;
+                fibMMinus2 = fibM - fibMMinus1;
+                offset = i;
+            } else if (list[i] > key) {
+                fibM = fibMMinus2;
+                fibMMinus1 = fibMMinus1 - fibMMinus2;
+                fibMMinus2 = fibM - fibMMinus1;
+            } else {
+                return i;
+            }
+        }
+
+        if (fibMMinus1 == 1 && list[offset+1] == key)
+            return offset+1;
+
+        return -1;
+
     }
 
     @Override
@@ -77,7 +110,7 @@ public class  SearchAlgorithm implements ISearchAlgorithm {
                 return jump();
             case "EXPONENTIAL SEARCH":
                 return exponential();
-            case "FIBONACCI_SEARCH":
+            case "FIBONACCI SEARCH":
                 return fibonacci();
             default:
                 return 0;

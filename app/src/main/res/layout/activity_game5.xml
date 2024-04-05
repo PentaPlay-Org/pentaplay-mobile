@@ -68,16 +68,16 @@
         android:id="@+id/linearLayout"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_100sdp"
+        android:layout_marginBottom="30dp"
         android:background="#FFFFFF"
         android:elevation="@dimen/_5sdp"
         android:orientation="vertical"
         android:padding="@dimen/_10sdp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.437">
+        app:layout_constraintVertical_bias="0.863">
 
         <TextView
             android:id="@+id/boxTitle"
@@ -205,11 +205,24 @@
         android:id="@+id/loader"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="329dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="10dp"
+        android:text="There are 5000 numbers between 1 - 1, 000, 000. Each number have unique index between 0 - 5000"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,9 +50,10 @@ public class Game5Activity extends AppCompatActivity {
     }
 
     private  void initRound(){
-        onSelected(-1);
+        isDisabled = false;
+        onSelected(-1 , true);
         PredictTheValueIndex obj = new PredictTheValueIndex();
-        ProgressBar loader = findViewById(R.id.loader);
+        //ProgressBar loader = findViewById(R.id.loader);
         /*
         loader.setVisibility(View.VISIBLE);
         isDisabled = true;
@@ -91,24 +92,27 @@ public class Game5Activity extends AppCompatActivity {
         button4.setText(String.valueOf(choices[3]));
     }
 
-    void onSelected(int index){
+    void onSelected(int index , boolean isCorrect){
         MaterialButton button = getButton(selectedIndex);
         setButtonTheme(button , "#FFFFFF" , "#000000");
         selectedIndex = index;
+        String bg = isCorrect?"#5356FF":"#ff3333";
         button = getButton(selectedIndex);
-            setButtonTheme(button , "#5356FF" , "#FFFFFF");
+            setButtonTheme(button , bg , "#FFFFFF");
     }
 
     void onAnswer(int index , PredictTheValueIndex obj){
         if(isDisabled)return;
-        onSelected(index);
+
         boolean isCorrect = obj.checkAnswer(this.choices[index]);
+        onSelected(index , isCorrect);
         if(isCorrect){
-            showSnackBar("Awsesome !!  Correct answer");
-            initRound();
+            showSnackBar("Awesome !!  Correct answer");
         }else{
             showSnackBar("Ohh !!  Wrong answer");
         }
+        isDisabled = true;
+        new Handler().postDelayed(this::initRound, 1000);
     }
 
 

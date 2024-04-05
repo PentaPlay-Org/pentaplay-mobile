@@ -5,9 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1A5356FF"
     tools:context=".Activities.Games.Game5_PredictTheValueIndex.UIs.Game5Activity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="409dp"
         android:layout_height="70dp"
         android:background="#5356FF"
@@ -24,31 +26,71 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:srcCompat="@drawable/rectangle_6"
+            tools:srcCompat="@drawable/rectangle_6" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:text="Predict the Position"
+            android:layout_marginStart="12dp"
+            android:paddingStart="10dp"
+            android:text="@string/predict_the_position"
             android:textColor="#FFFFFF"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.509" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="#FFFFFF"
-            android:text="Home"
-            android:textColorHighlight="#E91E63"
-            android:textColorLink="#E91E63"
+            android:text="@string/home"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.661"
+            app:layout_constraintHorizontal_bias="0.7"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginTop="172dp"
+        android:background="#FFFFFF"
+        android:elevation="@dimen/_5sdp"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.053">
+
+        <TextView
+            android:id="@+id/boxTitle"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Find index of"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/quizIndex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1000"
+            android:textAlignment="center"
+            android:textSize="34sp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

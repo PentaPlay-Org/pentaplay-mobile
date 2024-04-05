@@ -29,6 +29,7 @@ public class PredictTheValueIndex {
     public int generateRandomInt(int max){
         return  new Random().nextInt(max);
     }
+    public int getKey(){return key;}
 
     public int preStartRound(){
         int[] sortedArray = generateSoredRandomNumbers();

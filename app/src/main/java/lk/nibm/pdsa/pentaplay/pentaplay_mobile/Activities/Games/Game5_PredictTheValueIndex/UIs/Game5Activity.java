@@ -8,6 +8,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.button.MaterialButton;
+
 import java.util.Arrays;
 
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTheValueIndex.Logics.Helper;
@@ -30,7 +32,10 @@ public class Game5Activity extends AppCompatActivity {
         });
         PredictTheValueIndex obj = new PredictTheValueIndex();
         System.out.print("ARRAY  ");
-        String array = Arrays.toString(obj.startRound());
-        System.out.print(array);
+        int[] choices = obj.startRound();
+
+        System.out.print(Arrays.toString(choices));
+
+
     }
 }

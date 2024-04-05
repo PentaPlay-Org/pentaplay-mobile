@@ -10,7 +10,6 @@ public class PredictTheValueIndex {
     int correctIndex = -1;
     int key = 0;
 
-
     public PredictTheValueIndex(){
         algorithmTypes[0] = new SearchAlgorithmType("BINARY SEARCH");
         algorithmTypes[1] = new SearchAlgorithmType("JUMP SEARCH");

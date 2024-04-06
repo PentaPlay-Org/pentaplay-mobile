@@ -1,10 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context=".Activities.Games.Game1_EightQueensPuzzle.UIs.Game1Activity">
 
+    <Button
+        android:id="@+id/clearBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:onClick="clearBoardButtonClick"
+        android:text="Reset Board"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game1_EightQueensPuzzle.UIs.ChessBoard
+        android:id="@+id/chessBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/clearBoard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.252"
+        custom:boardColor="#444444"
+        custom:chessPiece="#EEEEEE"
+        custom:darkSquare="#5A3118"
+        custom:lightSquare="#AC8973"
+        custom:redSquare="#BB4444"
+        custom:greenSquare="#44BB44" />
+
+    <TextView
+        android:id="@+id/queenCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Queens Placed: 0"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chessBoard" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="Eight Queens Puzzle"
+        android:textSize="34sp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/chessBoard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:padding="16dp"-->
+<!--    tools:context=".Activities.Games.Game1_EightQueensPuzzle.UIs.Game1Activity">-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="cursive"-->
+<!--        android:textSize="@dimen/_25sdp"-->
+<!--        android:textColor="#89d6f5"/>-->
+
+<!--    <GridLayout-->
+<!--        android:id="@+id/gridLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:columnCount="3"-->
+<!--        android:rowCount="3"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginTop="@dimen/_90sdp"-->
+<!--        android:layout_marginBottom="@dimen/_190sdp">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_0"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:textSize="32sp"-->
+<!--            android:tag="0"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="#FFF"-->
+<!--            android:enabled="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_1"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:textSize="32sp"-->
+<!--            android:tag="0"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="#FFF"-->
+<!--            android:enabled="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_2"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:textSize="32sp"-->
+<!--            android:tag="0"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="#FFF"-->
+<!--            android:enabled="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_3"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:textSize="32sp"-->
+<!--            android:tag="0"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="#FFF"-->
+<!--            android:enabled="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_4"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:textSize="32sp"-->
+<!--            android:tag="0"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="#FFF"-->
+<!--            android:enabled="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_5"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:textSize="32sp"-->
+<!--            android:tag="0"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="#FFF"-->
+<!--            android:enabled="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_6"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:textSize="32sp"-->
+<!--            android:tag="0"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="#FFF"-->
+<!--            android:enabled="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_7"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:textSize="32sp"-->
+<!--            android:tag="0"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="#FFF"-->
+<!--            android:enabled="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/button_8"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_columnWeight="1"-->
+<!--            android:layout_marginEnd="4dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:textSize="32sp"-->
+<!--            android:tag="0"-->
+<!--            android:textStyle="bold"-->
+<!--            android:background="#FFF"-->
+<!--            android:enabled="false"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false" />-->
+
+<!--    </GridLayout>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView_result"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="@dimen/_30sdp"-->
+<!--        android:text="Reset Game"-->
+<!--        android:textSize="@dimen/_20sdp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_alignBottom="@id/gridLayout"/>-->
+
+<!--</RelativeLayout>-->

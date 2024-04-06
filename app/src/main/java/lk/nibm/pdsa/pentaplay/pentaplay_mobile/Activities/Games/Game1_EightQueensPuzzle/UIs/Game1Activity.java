@@ -1,6 +1,8 @@
 package lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game1_EightQueensPuzzle.UIs;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,15 +14,23 @@ import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
 
 public class Game1Activity extends AppCompatActivity {
 
+    private ChessBoard chessBoard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_game1);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        chessBoard = findViewById(R.id.chessBoard);
+
+        TextView queenCount = findViewById(R.id.queenCount);
+
+        chessBoard.setUpGame(queenCount);
+    }
+
+    public void clearBoardButtonClick(View view) {
+        chessBoard.clearBoard();
+        chessBoard.invalidate();
     }
 }
+

@@ -128,10 +128,9 @@ public class Game2Activity extends AppCompatActivity {
                 binding.textViewResult.setText("Computer Won");
             } else if (board.hasPlayerWon()) {
                 binding.textViewResult.setText("Player Won");
+                storeBoardData();
             } else if (board.isGameOver()) {
                 binding.textViewResult.setText("Game Tied");
-
-                storeBoardData();
             }
         }
     }

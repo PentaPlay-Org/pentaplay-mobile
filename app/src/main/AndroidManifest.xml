@@ -49,9 +49,6 @@
             android:name=".Activities.Games.Game1_EightQueensPuzzle.UIs.Game1InstructionsActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Games.Game2_TicTacToe.GameActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.WelcomeActivity"
             android:exported="false" />
         <activity

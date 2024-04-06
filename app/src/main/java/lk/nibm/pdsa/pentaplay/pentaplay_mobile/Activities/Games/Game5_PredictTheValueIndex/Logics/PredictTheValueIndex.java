@@ -39,7 +39,7 @@ public class PredictTheValueIndex {
             long startTime = System.nanoTime();
             algo.index  = searchAlgorithm.searchIndex(algo.name);
             long endTime = System.nanoTime();
-            long duration = (endTime - startTime) / 1000000;  //in milliseconds
+            long duration = (endTime - startTime);  //in nanoseconds
             algo.duration = (int)duration;
             //SAVE algo model in database
         }

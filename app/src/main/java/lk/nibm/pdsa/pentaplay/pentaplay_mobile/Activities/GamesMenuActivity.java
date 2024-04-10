@@ -14,6 +14,5 @@ public class GamesMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games_menu);
-        startActivity(new Intent(this , Game5Activity.class));
     }
 }

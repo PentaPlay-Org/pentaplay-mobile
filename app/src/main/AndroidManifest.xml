@@ -13,6 +13,10 @@
         android:theme="@style/Theme.PentaPlay"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.Games.Game2_TicTacToe.UIs.Game2Activity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".Activities.Games.Game5_PredictTheValueIndex.UIs.Game5InstructionsActivity"
             android:exported="false" />
         <activity
@@ -34,9 +38,6 @@
             android:name=".Activities.Games.Game3_IdentifyShortestPath.UIs.Game3Activity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Games.Game2_TicTacToe.UIs.Game2Activity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.Games.Game1_EightQueensPuzzle.UIs.Game1Activity"
             android:exported="false" />
 <!--            <intent-filter>-->
@@ -55,9 +56,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.Games.Game2_TicTacToe.GameActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.WelcomeActivity"
             android:exported="false" />
         <activity
@@ -66,6 +64,7 @@
         <activity
             android:name=".Activities.GamesMenuActivity"
             android:exported="false" />
+            
             
     </application>
 

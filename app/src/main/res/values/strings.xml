@@ -5,4 +5,6 @@
     <string name="identify_shortest_path">Identify Shortest Path</string>
     <string name="remeber_the_position">Remeber The Position</string>
     <string name="predict_the_position">Predict the Position</string>
+    <string name="restart">Restart</string>
+    <string name="home">Home</string>
 </resources>

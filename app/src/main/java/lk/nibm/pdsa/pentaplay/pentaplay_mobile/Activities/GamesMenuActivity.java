@@ -3,6 +3,7 @@ package lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.Intent;
 import android.os.Bundle;
 
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game1_EightQueensPuzzle.UIs.Game1Activity;

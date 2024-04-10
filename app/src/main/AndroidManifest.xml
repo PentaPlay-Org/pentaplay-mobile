@@ -23,6 +23,9 @@
 
         </activity>
         <activity
+            android:name=".Activities.Games.Game2_TicTacToe.UIs.Game2Activity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Games.Game5_PredictTheValueIndex.UIs.Game5InstructionsActivity"
             android:exported="false" />
         <activity
@@ -44,9 +47,6 @@
             android:name=".Activities.Games.Game3_IdentifyShortestPath.UIs.Game3Activity"
             android:exported="false" />
         <activity
-            android:name=".Activities.Games.Game2_TicTacToe.UIs.Game2Activity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.Games.Game1_EightQueensPuzzle.UIs.Game1Activity"
             android:exported="false" />
         <activity
@@ -54,16 +54,13 @@
             android:exported="false" />
         <activity
             android:name=".Activities.WelcomeActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.GamesMenuActivity"
-            android:exported="false" />
+            android:exported="false" />  
     </application>
 
 </manifest>

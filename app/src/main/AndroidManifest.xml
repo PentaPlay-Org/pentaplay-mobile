@@ -39,21 +39,9 @@
         <activity
             android:name=".Activities.Games.Game1_EightQueensPuzzle.UIs.Game1Activity"
             android:exported="false" />
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
         <activity
             android:name=".Activities.Games.Game1_EightQueensPuzzle.UIs.Game1InstructionsActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Activities.Games.Game2_TicTacToe.GameActivity"
             android:exported="false" />
@@ -65,7 +53,13 @@
             android:exported="false" />
         <activity
             android:name=".Activities.GamesMenuActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
             
     </application>
 

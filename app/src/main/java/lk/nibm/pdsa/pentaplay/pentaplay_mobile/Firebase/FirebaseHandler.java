@@ -41,4 +41,21 @@ public class FirebaseHandler {
         }
     }
 
+    public void store(Player player, int answer) {
+        if (player != null && player.getName() != null) {
+            Map<String, Object> playerData = new HashMap<>();
+            playerData.put("name", player.getName());
+            playerData.put("answer", answer);
+            playerData.put("date", player.getDate());
+            playerData.put("time", player.getTime());
+
+            // Store data in Firebase
+            playersCollection.document(player.getName()).set(playerData, SetOptions.merge())
+                    .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written"))
+                    .addOnFailureListener(e -> Log.w(TAG, "Error writing document", e));
+        } else {
+            System.err.println("Player or player name is null");
+        }
+    }
+
 }

@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">PentaPlay</string>
+    <string name="eight_queens_puzzle">Eight Queens Puzzle</string>
     <string name="tic_tac_toe">Tic Tac Toe</string>
+    <string name="identify_shortest_path">Identify Shortest Path</string>
+    <string name="remeber_the_position">Remeber The Position</string>
+    <string name="predict_the_position">Predict the Position</string>
     <string name="restart">Restart</string>
     <string name="home">Home</string>
-    <string name="predict_the_position">Predict the Position</string>
 </resources>

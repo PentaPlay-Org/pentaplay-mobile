@@ -1,9 +1,7 @@
 package lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
 
 public class WelcomeActivity extends AppCompatActivity {

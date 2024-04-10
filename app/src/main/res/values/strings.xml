@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PentaPlay</string>
+    <string name="tic_tac_toe">Tic Tac Toe</string>
+    <string name="restart">Restart</string>
+    <string name="home">Home</string>
+    <string name="predict_the_position">Predict the Position</string>
 </resources>

@@ -9,7 +9,7 @@ public class Player {
     private Map<String, Object> board;
     private String date;
     private String time;
-    private String game;
+    private String gameCode;
 
     public Player(String playerName) {
         this.name = playerName;
@@ -50,4 +50,11 @@ public class Player {
         this.time = time;
     }
 
+    public String getGameCode() {
+        return gameCode;
+    }
+
+    public void setGameCode(String gameCode) {
+        this.gameCode = gameCode;
+    }
 }

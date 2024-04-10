@@ -6,16 +6,25 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.PentaPlay"
         tools:targetApi="31">
         <activity
-            android:name=".Activities.Games.Game2_TicTacToe.UIs.Game2Activity"
-            android:exported="false">
+            android:name=".Activities.SplashActivity"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
+        <activity
+            android:name=".Activities.Games.Game2_TicTacToe.UIs.Game2Activity"
+            android:exported="false" />
         <activity
             android:name=".Activities.Games.Game5_PredictTheValueIndex.UIs.Game5InstructionsActivity"
             android:exported="false" />
@@ -51,15 +60,7 @@
             android:exported="false" />
         <activity
             android:name=".Activities.GamesMenuActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-            
-            
+            android:exported="false" />  
     </application>
 
 </manifest>

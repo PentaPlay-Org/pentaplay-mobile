@@ -4,7 +4,6 @@ import static android.content.ContentValues.TAG;
 
 import android.util.Log;
 
-
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
@@ -25,7 +24,7 @@ public class FirebaseHandler {
     }
 
     public void store(Player player, Map<String, Object> answer) {
-        if (player != null && player.getName() != null) {
+        if (player != null && player.getId() != null) {
             Map<String, Object> playerData = new HashMap<>();
             playerData.put("name", player.getName());
             playerData.put("game code", player.getGameCode());
@@ -33,30 +32,29 @@ public class FirebaseHandler {
             playerData.put("date", player.getDate());
             playerData.put("time", player.getTime());
 
-            // Store data in Firebase
-            playersCollection.document(player.getName()).set(playerData, SetOptions.merge())
+            // Store data in Firebase using player's id
+            playersCollection.document(player.getId()).set(playerData, SetOptions.merge())
                     .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written"))
                     .addOnFailureListener(e -> Log.w(TAG, "Error writing document", e));
         } else {
-            System.err.println("Player or player name is null");
+            System.err.println("Player or player id is null");
         }
     }
 
     public void store(Player player, int answer) {
-        if (player != null && player.getName() != null) {
+        if (player != null && player.getId() != null) {
             Map<String, Object> playerData = new HashMap<>();
             playerData.put("name", player.getName());
             playerData.put("answer", answer);
             playerData.put("date", player.getDate());
             playerData.put("time", player.getTime());
 
-            // Store data in Firebase
-            playersCollection.document(player.getName()).set(playerData, SetOptions.merge())
+            // Store data in Firebase using player's id
+            playersCollection.document(player.getId()).set(playerData, SetOptions.merge())
                     .addOnSuccessListener(aVoid -> Log.d(TAG, "DocumentSnapshot successfully written"))
                     .addOnFailureListener(e -> Log.w(TAG, "Error writing document", e));
         } else {
-            System.err.println("Player or player name is null");
+            System.err.println("Player or player id is null");
         }
     }
-
 }

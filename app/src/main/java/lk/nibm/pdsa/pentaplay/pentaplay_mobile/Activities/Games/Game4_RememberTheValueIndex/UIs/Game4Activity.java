@@ -15,12 +15,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.UIs.Game2Activity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game4_RememberTheValueIndex.Logics.RememberTheValueIndex;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.GamesMenuActivity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.WelcomeActivity;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Firebase.FirebaseHandler;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Model.Player;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame2Binding;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame4Binding;
@@ -34,6 +41,8 @@ public class Game4Activity extends AppCompatActivity {
 
     private int number1Index;
     private int number2Index;
+    private FirebaseHandler firebaseHandler;
+    private String playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +55,12 @@ public class Game4Activity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        playerName = getIntent().getStringExtra("PlayerName");
+
+        FirebaseApp.initializeApp(this);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        firebaseHandler = new FirebaseHandler();
 
         binding.homeBtn.setOnClickListener(v -> {
             Intent intent = new Intent(Game4Activity.this, WelcomeActivity.class);
@@ -120,6 +135,15 @@ public class Game4Activity extends AppCompatActivity {
         if (input1 == number2Index && input2 == number1Index) {
             textView5.setVisibility(View.GONE);
             textView6.setVisibility(View.VISIBLE);
+
+            Player currentPlayer = new Player(playerName,"Remember the value index");
+            if (currentPlayer != null) {
+                Map<String, Object> answers = new HashMap<>();
+                answers.put("answer1", input1);
+                answers.put("answer2", input2);
+                firebaseHandler.store(currentPlayer, answers);
+            }
+
         } else {
             textView5.setVisibility(View.VISIBLE);
             textView6.setVisibility(View.GONE);

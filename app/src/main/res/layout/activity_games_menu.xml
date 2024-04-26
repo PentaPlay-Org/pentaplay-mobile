@@ -44,7 +44,35 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <LinearLayout
+        android:id="@+id/player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@id/btnGroup">
+
+        <TextView
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:text="Hello,"
+            android:textSize="@dimen/_20ssp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/playerName"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:text="Player Name"
+            android:textSize="@dimen/_20ssp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/btnGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -53,6 +81,15 @@
             app:layout_constraintTop_toBottomOf="@id/constraintLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Games Menu"
+                android:textSize="@dimen/_20ssp"
+                android:textColor="@color/black"
+                android:fontFamily="cursive"
+                android:layout_marginBottom="@dimen/_40ssp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEightQueens"

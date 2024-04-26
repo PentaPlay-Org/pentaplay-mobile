@@ -1,5 +1,6 @@
 package lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTheValueIndex.UIs;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,26 +17,54 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.UIs.Game2Activity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTheValueIndex.Logics.PredictTheValueIndex;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.GamesMenuActivity;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.WelcomeActivity;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Firebase.FirebaseHandler;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Model.Player;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame2Binding;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame5Binding;
 
 public class Game5Activity extends AppCompatActivity {
+
+    private ActivityGame5Binding binding;
     int[] choices;
     int selectedIndex = -1;
     boolean isDisabled = false;
+    private FirebaseHandler firebaseHandler;
+    private String playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_game5);
+        binding = ActivityGame5Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        binding.homeBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Game5Activity.this, WelcomeActivity.class);
+            startActivity(intent);
+        });
+
+        playerName = getIntent().getStringExtra("PlayerName");
+
+        FirebaseApp.initializeApp(this);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        firebaseHandler = new FirebaseHandler();
 
         initRound();
 
@@ -108,6 +137,14 @@ public class Game5Activity extends AppCompatActivity {
         onSelected(index , isCorrect);
         if(isCorrect){
             showSnackBar("Awesome !!  Correct answer");
+            Player currentPlayer = new Player(playerName, "Predict the value index");
+            Map<String, Object> answerMap = new HashMap<>();
+            answerMap.put("playerName", playerName);
+            answerMap.put("gameCode", "Predict the value index");
+            answerMap.put("answer", choices[index]);
+            if (currentPlayer != null) {
+                firebaseHandler.store(currentPlayer, answerMap);
+            }
         }else{
             showSnackBar("Ohh !!  Wrong answer");
         }

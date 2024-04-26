@@ -24,20 +24,38 @@ public class GamesMenuActivity extends AppCompatActivity {
         binding = ActivityGamesMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.btnEightQueens.setOnClickListener(v ->
-                startActivity(new Intent(getApplicationContext(), Game1Activity.class)));
+        String playerName = getIntent().getStringExtra("PlayerName");
+        binding.playerName.setText(playerName);
 
-        binding.btnTicTacToe.setOnClickListener(v ->
-                startActivity(new Intent(getApplicationContext(), Game2Activity.class)));
+        binding.btnEightQueens.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
+            intent.putExtra("PlayerName", playerName);
+            startActivity(intent);
+        });
 
-        binding.btnIdentifyShortestPath.setOnClickListener(v ->
-                startActivity(new Intent(getApplicationContext(), Game3Activity.class)));
+        binding.btnTicTacToe.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
+            intent.putExtra("PlayerName", playerName);
+            startActivity(intent);
+        });
 
-        binding.btnRememberPosition.setOnClickListener(v ->
-                startActivity(new Intent(getApplicationContext(), Game4Activity.class)));
+        binding.btnIdentifyShortestPath.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Game3Activity.class);
+            intent.putExtra("PlayerName", playerName);
+            startActivity(intent);
+        });
 
-        binding.btnPredictPosition.setOnClickListener(v ->
-                startActivity(new Intent(getApplicationContext(), Game5Activity.class)));
+        binding.btnRememberPosition.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Game4Activity.class);
+            intent.putExtra("PlayerName", playerName);
+            startActivity(intent);
+        });
+
+        binding.btnPredictPosition.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Game5Activity.class);
+            intent.putExtra("PlayerName", playerName);
+            startActivity(intent);
+        });
 
     }
 }

@@ -1,5 +1,6 @@
 package lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.UIs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.Logics.Board;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.Logics.Cell;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.GamesMenuActivity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Firebase.FirebaseHandler;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Model.Player;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
@@ -40,6 +42,10 @@ public class Game2Activity extends AppCompatActivity {
 
         binding.btnReset.setOnClickListener(v -> {
             reset();
+        });
+        binding.homeBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Game2Activity.this, GamesMenuActivity.class);
+            startActivity(intent);
         });
     }
 

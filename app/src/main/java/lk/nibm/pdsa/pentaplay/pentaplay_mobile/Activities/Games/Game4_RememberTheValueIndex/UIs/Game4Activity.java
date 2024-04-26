@@ -1,5 +1,6 @@
 package lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game4_RememberTheValueIndex.UIs;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -16,10 +17,16 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Random;
 
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.UIs.Game2Activity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game4_RememberTheValueIndex.Logics.RememberTheValueIndex;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.GamesMenuActivity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame2Binding;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame4Binding;
 
 public class Game4Activity extends AppCompatActivity {
+
+    private ActivityGame4Binding binding;
 
     private int[] sortedNumbers;
     private int index;
@@ -31,11 +38,17 @@ public class Game4Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_game4);
+        binding = ActivityGame4Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        binding.homeBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Game4Activity.this, GamesMenuActivity.class);
+            startActivity(intent);
         });
 
         RememberTheValueIndex rememberTheValueIndex = new RememberTheValueIndex();

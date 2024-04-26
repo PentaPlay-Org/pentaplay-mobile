@@ -1,5 +1,6 @@
 package lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTheValueIndex.UIs;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,10 +19,17 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Arrays;
+
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.UIs.Game2Activity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTheValueIndex.Logics.PredictTheValueIndex;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.GamesMenuActivity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame2Binding;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame5Binding;
 
 public class Game5Activity extends AppCompatActivity {
+
+    private ActivityGame5Binding binding;
     int[] choices;
     int selectedIndex = -1;
     boolean isDisabled = false;
@@ -30,11 +38,17 @@ public class Game5Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_game5);
+        binding = ActivityGame5Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        binding.homeBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(Game5Activity.this, GamesMenuActivity.class);
+            startActivity(intent);
         });
 
         initRound();

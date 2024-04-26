@@ -2,6 +2,9 @@ package lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game5_PredictTh
 
 import java.util.Random;
 
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Firebase.FirebaseHandler;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Model.Search;
+
 public class PredictTheValueIndex {
     final int ARRAY_SIZE = 5000;
     final int MAXVALUE = 1000000;
@@ -9,6 +12,7 @@ public class PredictTheValueIndex {
     SearchAlgorithmType[] algorithmTypes =  new SearchAlgorithmType[4];
     int correctIndex = -1;
     int key = 0;
+    FirebaseHandler firebaseHandler = new FirebaseHandler();
 
     public PredictTheValueIndex(){
         algorithmTypes[0] = new SearchAlgorithmType("BINARY SEARCH");
@@ -41,7 +45,11 @@ public class PredictTheValueIndex {
             long endTime = System.nanoTime();
             long duration = (endTime - startTime);  //in nanoseconds
             algo.duration = (int)duration;
-            //SAVE algo model in database
+
+            Search search = new Search(algo.name, algo.duration);
+
+            // Store the Search object in Firebase Firestore
+            firebaseHandler.storeSearch(search);
         }
         return index;
     }

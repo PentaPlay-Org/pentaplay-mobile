@@ -3,10 +3,15 @@ package lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game4_RememberT
 import java.util.Arrays;
 import java.util.Random;
 
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Firebase.FirebaseHandler;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Model.Sort;
+
 public class RememberTheValueIndex {
    private static long startTime;
    private static long endTime;
    private static long duration;
+
+   FirebaseHandler firebaseHandler = new FirebaseHandler();
    public int[] myMethod() {
       RememberTheValueIndex rememberTheValueIndex = new RememberTheValueIndex();
       Random rand = new Random();
@@ -25,6 +30,7 @@ public class RememberTheValueIndex {
       endTime = System.nanoTime();
       duration = (endTime - startTime);
       System.out.println("Time taken by Bubble Sort: " + duration + " nanoseconds");
+      store("Bubble Sort", duration);
       printFirst20Sorted(arrBubbleSort);
 
       // Insertion Sort
@@ -34,6 +40,7 @@ public class RememberTheValueIndex {
       endTime = System.nanoTime();
       duration = (endTime - startTime);
       System.out.println("Time taken by Insertion Sort: " + duration + " nanoseconds");
+      store("Insertion Sort", duration);
       printFirst20Sorted(arrInsertionSort);
 
       // Merge Sort
@@ -43,6 +50,7 @@ public class RememberTheValueIndex {
       endTime = System.nanoTime();
       duration = (endTime - startTime);
       System.out.println("Time taken by Merge Sort: " + duration + " nanoseconds");
+      store("Merge Sort", duration);
       printFirst20Sorted(arrMergeSort);
 
       // Shell Sort
@@ -52,6 +60,7 @@ public class RememberTheValueIndex {
       endTime = System.nanoTime();
       duration = (endTime - startTime);
       System.out.println("Time taken by Shell Sort: " + duration + " nanoseconds");
+      store("Shell Sort", duration);
       printFirst20Sorted(arrShellSort);
 
       // Quick Sort
@@ -61,6 +70,7 @@ public class RememberTheValueIndex {
       endTime = System.nanoTime();
       duration = (endTime - startTime);
       System.out.println("Time taken by Quick Sort: " + duration + " nanoseconds");
+      store("Quick Sort", duration);
       printFirst20Sorted(arrQuickSort);
 
       // Tim Sort
@@ -70,6 +80,7 @@ public class RememberTheValueIndex {
       endTime = System.nanoTime();
       duration = (endTime - startTime);
       System.out.println("Time taken by Tim Sort: " + duration + " nanoseconds");
+      store("Tim Sort", duration);
       printFirst20Sorted(arrTimSort);
 
       // Radix Sort
@@ -79,6 +90,7 @@ public class RememberTheValueIndex {
       endTime = System.nanoTime();
       duration = (endTime - startTime);
       System.out.println("Time taken by Radix Sort: " + duration + " nanoseconds");
+      store("Radix Sort", duration);
       printFirst20Sorted(arrRadixSort);
 
       return arrBubbleSort;
@@ -354,6 +366,12 @@ public class RememberTheValueIndex {
       for (int i = 0; i < 20; i++) {
          System.out.println("Index: " + i + ", Number: " + arr[i]);
       }
+   }
+
+   private void store(String type, long duration)
+   {
+      Sort sort = new Sort (type, duration);
+      firebaseHandler.storeSort(sort);
    }
 
 

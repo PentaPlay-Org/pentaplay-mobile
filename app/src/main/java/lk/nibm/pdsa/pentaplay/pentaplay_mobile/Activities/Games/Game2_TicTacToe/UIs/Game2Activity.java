@@ -141,6 +141,7 @@ public class Game2Activity extends AppCompatActivity {
                 storeBoardData();
             } else if (board.isGameOver()) {
                 binding.textViewResult.setText("Game Tied");
+                storeBoardData();
             }
         }
     }

@@ -16,17 +16,20 @@ import java.util.Map;
 
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Model.Player;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Model.Search;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Model.Sort;
 
 public class FirebaseHandler {
 
     private FirebaseFirestore firestore;
     private CollectionReference playersCollection;
     private CollectionReference searchCollection;
+    private CollectionReference sortCollection;
 
     public FirebaseHandler() {
         firestore = FirebaseFirestore.getInstance();
-        playersCollection = firestore.collection("Players");
-        searchCollection = firestore.collection("Searches");
+        playersCollection = firestore.collection("Player");
+        searchCollection = firestore.collection("Search");
+        sortCollection = firestore.collection("Sort");
     }
 
     public void store(Player player, Map<String, Object> answer) {
@@ -76,6 +79,21 @@ public class FirebaseHandler {
                     .addOnFailureListener(e -> Log.w(TAG, "Error adding search data", e));
         } else {
             System.err.println("Search object is null");
+        }
+    }
+
+    public void storeSort(Sort sort) {
+        if (sort != null) {
+            Map<String, Object> sortData = new HashMap<>();
+            sortData.put("sortType", sort.getType());
+            sortData.put("sortDuration", sort.getDuration() + " NanoSecs");
+
+            // Store sort data in Firebase
+            sortCollection.add(sortData)
+                    .addOnSuccessListener(documentReference -> Log.d(TAG, "Sort data added successfully"))
+                    .addOnFailureListener(e -> Log.w(TAG, "Error adding sort data", e));
+        } else {
+            System.err.println("Sort object is null");
         }
     }
 

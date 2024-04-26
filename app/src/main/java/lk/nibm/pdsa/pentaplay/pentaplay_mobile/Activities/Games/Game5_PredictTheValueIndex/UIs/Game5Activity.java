@@ -139,8 +139,6 @@ public class Game5Activity extends AppCompatActivity {
             showSnackBar("Awesome !!  Correct answer");
             Player currentPlayer = new Player(playerName, "Predict the value index");
             Map<String, Object> answerMap = new HashMap<>();
-            answerMap.put("playerName", playerName);
-            answerMap.put("gameCode", "Predict the value index");
             answerMap.put("answer", choices[index]);
             if (currentPlayer != null) {
                 firebaseHandler.store(currentPlayer, answerMap);

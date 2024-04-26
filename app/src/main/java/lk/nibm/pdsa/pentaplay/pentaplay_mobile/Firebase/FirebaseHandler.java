@@ -28,6 +28,7 @@ public class FirebaseHandler {
         if (player != null && player.getName() != null) {
             Map<String, Object> playerData = new HashMap<>();
             playerData.put("name", player.getName());
+            playerData.put("game code", player.getGameCode());
             playerData.put("answer", answer);
             playerData.put("date", player.getDate());
             playerData.put("time", player.getTime());

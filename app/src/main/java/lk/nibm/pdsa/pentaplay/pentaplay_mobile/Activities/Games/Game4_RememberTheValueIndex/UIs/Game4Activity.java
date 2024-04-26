@@ -20,6 +20,7 @@ import java.util.Random;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.UIs.Game2Activity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game4_RememberTheValueIndex.Logics.RememberTheValueIndex;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.GamesMenuActivity;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.WelcomeActivity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame2Binding;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame4Binding;
@@ -47,7 +48,7 @@ public class Game4Activity extends AppCompatActivity {
         });
 
         binding.homeBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(Game4Activity.this, GamesMenuActivity.class);
+            Intent intent = new Intent(Game4Activity.this, WelcomeActivity.class);
             startActivity(intent);
         });
 

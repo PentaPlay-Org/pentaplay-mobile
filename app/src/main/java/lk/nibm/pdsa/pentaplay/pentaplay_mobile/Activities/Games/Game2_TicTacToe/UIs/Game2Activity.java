@@ -17,6 +17,7 @@ import java.util.Map;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.Logics.Board;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.Logics.Cell;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.GamesMenuActivity;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.WelcomeActivity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Firebase.FirebaseHandler;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Model.Player;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
@@ -27,12 +28,15 @@ public class Game2Activity extends AppCompatActivity {
     private Board board = new Board();
     private ActivityGame2Binding binding;
     private FirebaseHandler firebaseHandler;
+    private String playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityGame2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        playerName = getIntent().getStringExtra("PlayerName");
 
         FirebaseApp.initializeApp(this);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
@@ -44,7 +48,7 @@ public class Game2Activity extends AppCompatActivity {
             reset();
         });
         binding.homeBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(Game2Activity.this, GamesMenuActivity.class);
+            Intent intent = new Intent(Game2Activity.this, WelcomeActivity.class);
             startActivity(intent);
         });
     }
@@ -102,7 +106,7 @@ public class Game2Activity extends AppCompatActivity {
         Map<String, Object> boardMap = board.toMap();
         Map<String, Object> jsonObject = convertBoardToMap(boardMap);
 
-        Player player = new Player("PlayerName2");
+        Player player = new Player(playerName, "TicTacToe");
 
         firebaseHandler.store(player, jsonObject);
     }
@@ -151,7 +155,6 @@ public class Game2Activity extends AppCompatActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle exception
         }
         return boardData;
     }

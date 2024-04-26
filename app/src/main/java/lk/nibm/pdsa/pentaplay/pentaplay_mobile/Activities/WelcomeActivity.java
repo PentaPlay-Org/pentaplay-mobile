@@ -13,6 +13,7 @@ import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityWelcomeBindin
 public class WelcomeActivity extends AppCompatActivity {
 
     private ActivityWelcomeBinding binding;
+    private String playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,21 +22,18 @@ public class WelcomeActivity extends AppCompatActivity {
 
         setContentView(binding.getRoot());
 
-        setListners();
+        setListeners();
     }
 
-    private void setListners()
-    {
-
-        binding.btnEnter.setOnClickListener(v-> {
-            if (isValidSignInDetails())
-            {
-                Player player = new Player(binding.inputName.getText().toString());
+    private void setListeners() {
+        binding.btnEnter.setOnClickListener(v -> {
+            if (isValidSignInDetails()) {
+                playerName = binding.inputName.getText().toString();
                 Intent intent = new Intent(WelcomeActivity.this, GamesMenuActivity.class);
+                intent.putExtra("PlayerName", playerName);
                 startActivity(intent);
             }
         });
-
     }
 
     private void showToast(String message)

@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.Games.Game2_TicTacToe.UIs.Game2Activity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.GamesMenuActivity;
+import lk.nibm.pdsa.pentaplay.pentaplay_mobile.Activities.WelcomeActivity;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.R;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame1Binding;
 import lk.nibm.pdsa.pentaplay.pentaplay_mobile.databinding.ActivityGame2Binding;
@@ -35,7 +36,7 @@ public class Game1Activity extends AppCompatActivity {
         chessBoard.setUpGame(queenCount);
 
         binding.homeBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(Game1Activity.this, GamesMenuActivity.class);
+            Intent intent = new Intent(Game1Activity.this, WelcomeActivity.class);
             startActivity(intent);
         });
 

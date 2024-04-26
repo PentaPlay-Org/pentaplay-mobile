@@ -18,6 +18,14 @@ public class Player {
         this.time = currentDate.toString().split(" ")[3];
     }
 
+    public Player(String playerName, String gameCode) {
+        this.name = playerName;
+        this.gameCode = gameCode;
+        Date currentDate = new Date();
+        this.date = currentDate.toString().split(" ")[1] + " " + currentDate.toString().split(" ")[2] + ", " + currentDate.toString().split(" ")[5];
+        this.time = currentDate.toString().split(" ")[3];
+    }
+
     public String getName() {
         return name;
     }

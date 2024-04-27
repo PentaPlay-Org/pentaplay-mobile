@@ -104,16 +104,19 @@ public class Game5Activity extends AppCompatActivity {
             onAnswer(0 , obj);
         });
         button1.setText(String.valueOf(choices[0]));
+
         MaterialButton button2 = findViewById(R.id.button2);
         button2.setOnClickListener(e->{
             onAnswer(1 , obj);
         });
         button2.setText(String.valueOf(choices[1]));
+
         MaterialButton button3 = findViewById(R.id.button3);
         button3.setOnClickListener(e->{
             onAnswer(2 , obj);
         });
         button3.setText(String.valueOf(choices[2]));
+
         MaterialButton button4 = findViewById(R.id.button4);
         button4.setOnClickListener(e->{
             onAnswer(3 , obj);

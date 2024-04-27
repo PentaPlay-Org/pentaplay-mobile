@@ -60,8 +60,6 @@ public class Board {
         return false;
     }
 
-
-    //minmax is a decision rule used in ai for minimizing the possible loss for a worst case scenario.
     public int minimax(int depth, String player) {
         if (hasComputerWon()) return +1;
         if (hasPlayerWon()) return -1;
